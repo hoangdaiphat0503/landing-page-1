@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXURY TIME - Khẳng Định Vị Thế Doanh Nhân</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg-dark: #0a0b10;
+  --bg-gradient: linear-gradient(135deg, #130f1e 0%, #0a0b10 50%, #061118 100%);
+  --neon-pink: #ff2a85;
+  --neon-purple: #9d4edd;
+  --neon-cyan: #00f2fe;
+  --neon-blue: #4facfe;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a5b1;
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-gradient);
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Background Glow Effects */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  opacity: 0.5;
+}
+.orb-1 {
+  top: -100px;
+  left: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(157,78,221,0.4) 0%, rgba(0,0,0,0) 70%);
+}
+.orb-2 {
+  top: 20%;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0,242,254,0.3) 0%, rgba(0,0,0,0) 70%);
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  position: relative;
+  z-index: 10;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #d33c8c, #833ab4);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(211, 60, 140, 0.4);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-primary:hover {
+  box-shadow: 0 0 30px rgba(211, 60, 140, 0.7);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.5);
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--neon-pink);
+  margin-bottom: 30px;
+  box-shadow: 0 0 15px rgba(255, 42, 133, 0.2);
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(40px, 6vw, 70px);
+  font-weight: 800;
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.hero h1 span {
+  background: linear-gradient(90deg, #ffffff, var(--neon-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  font-size: 18px;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+}
+
+.hero-btns {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Stats Section */
+.stats-section {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-num {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 5px;
+}
+
+.stat-item:nth-child(2) .stat-num {
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-item:nth-child(3) .stat-num {
+  background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Floating Watch Display */
+.showcase-container {
+  position: relative;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -50px;
+}
+
+.showcase-watch {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,242,254,0.1) 0%, rgba(0,0,0,0) 70%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.showcase-watch img {
+  width: 350px;
+  height: auto;
+  z-index: 2;
+  filter: drop-shadow(0 0 30px rgba(0,242,254,0.4));
+  border-radius: 20px;
+}
+
+.floating-tag {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px 25px;
+  border-radius: 12px;
+  z-index: 3;
+}
+
+.tag-left {
+  left: 0;
+  top: 30%;
+  border-left: 2px solid var(--neon-cyan);
+}
+
+.tag-right {
+  right: 0;
+  top: 50%;
+  border-right: 2px solid var(--neon-pink);
+}
+
+.tag-label {
+  font-size: 10px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.tag-value {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--neon-cyan);
+}
+
+.tag-right .tag-value {
+  color: var(--neon-pink);
+}
+
+/* Marquee */
+.marquee-container {
+  background: linear-gradient(90deg, #833ab4, #fd1d1d, #fcb045);
+  padding: 15px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  margin-top: 50px;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 3px;
+  color: white;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Section Titles */
+.section-header {
+  text-align: center;
+  padding: 80px 20px 40px;
+}
+
+.section-header h2 {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.section-header h2 span {
+  color: var(--neon-pink);
+}
+
+/* Products Grid */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 0 5%;
+  max-width: 1400px;
+  margin: 0 auto 100px;
+}
+
+.product-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 30px 20px;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.card-1 { box-shadow: inset 0 0 50px rgba(255, 42, 133, 0.1); border-top: 1px solid rgba(255, 42, 133, 0.3); }
+.card-2 { box-shadow: inset 0 0 50px rgba(0, 242, 254, 0.1); border-top: 1px solid rgba(0, 242, 254, 0.3); }
+.card-3 { box-shadow: inset 0 0 50px rgba(253, 29, 29, 0.1); border-top: 1px solid rgba(253, 29, 29, 0.3); }
+.card-4 { box-shadow: inset 0 0 50px rgba(157, 78, 221, 0.1); border-top: 1px solid rgba(157, 78, 221, 0.3); }
+
+.card-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.badge-hot { background: rgba(255, 42, 133, 0.2); color: #ff2a85; border: 1px solid rgba(255, 42, 133, 0.5); }
+.badge-new { background: rgba(0, 242, 254, 0.2); color: #00f2fe; border: 1px solid rgba(0, 242, 254, 0.5); }
+.badge-sale { background: rgba(253, 29, 29, 0.2); color: #fd1d1d; border: 1px solid rgba(253, 29, 29, 0.5); }
+.badge-best { background: rgba(157, 78, 221, 0.2); color: #9d4edd; border: 1px solid rgba(157, 78, 221, 0.5); }
+
+.product-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 30px 0;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+}
+
+.product-title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.product-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 20px;
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto;
+}
+
+.price-old {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-decoration: line-through;
+  margin-bottom: 2px;
+}
+
+.price-new {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.card-1 .price-new { color: var(--neon-pink); }
+.card-2 .price-new { color: var(--neon-cyan); }
+.card-3 .price-new { color: #fd1d1d; }
+.card-4 .price-new { color: var(--neon-purple); }
+
+.add-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+.card-1 .add-btn { background: var(--neon-pink); }
+.card-2 .add-btn { background: var(--neon-cyan); }
+.card-3 .add-btn { background: #fd1d1d; }
+.card-4 .add-btn { background: var(--neon-purple); }
+
+.add-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Features Grid */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 0 5%;
+  max-width: 1400px;
+  margin: 0 auto 50px;
+}
+
+.feature-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: left;
+}
+
+.feature-icon {
+  font-size: 30px;
+  margin-bottom: 20px;
+  display: inline-block;
+  padding: 15px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.feature-box h3 {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.feature-box p {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 32px; }
+  .stats-section { flex-direction: column; gap: 30px; }
+  .showcase-watch { width: 300px; height: 300px; }
+  .showcase-watch img { width: 250px; }
+  .floating-tag { position: relative; left: auto; right: auto; top: auto; margin: 10px auto; width: max-content; }
+  .showcase-container { flex-direction: column; height: auto; padding-bottom: 50px; }
+  nav { flex-direction: column; gap: 20px; }
+}
+
+</style>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <nav>
+        <div class="logo">LUXURY TIME</div>
+        <a href="#contact" class="btn-primary">Nhận Tư Vấn VIP &rarr;</a>
+    </nav>
+
+    <section class="hero">
+        <div class="badge">✦ BỘ SƯU TẬP PRE-OWNED 2025</div>
+        <h1>ĐEO LÊN <br><span>CHẤT RIÊNG</span> DOANH NHÂN</h1>
+        <p>Sở hữu siêu phẩm đồng hồ lướt Thụy Sĩ & Nhật Bản chính hãng. Trải nghiệm đẳng cấp thượng lưu với mức giá đầu tư thông minh nhất, bảo hành VIP tại trung tâm TP.HCM.</p>
+        <div class="hero-btns">
+            <a href="#collection" class="btn-primary">Khám Phá Ngay</a>
+            <a href="#video" class="btn-secondary"><i class="fas fa-play-circle"></i> Xem Video</a>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stat-item">
+            <div class="stat-num">12K+</div>
+            <div class="stat-label">Khách Hàng VIP</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Cam Kết Chính Hãng</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">5 Năm</div>
+            <div class="stat-label">Bảo Hành Hậu Mãi</div>
+        </div>
+    </section>
+
+    <section class="showcase-container">
+        <div class="floating-tag tag-left">
+            <div class="tag-label">Độ Chính Xác</div>
+            <div class="tag-value">±0.5s / ngày</div>
+        </div>
+        
+        <div class="showcase-watch">
+            <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=800&q=80" alt="Luxury Rolex Watch">
+        </div>
+
+        <div class="floating-tag tag-right">
+            <div class="tag-label">Kháng Nước</div>
+            <div class="tag-value">100M WR</div>
+        </div>
+    </section>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            ✦ UY TÍN LÀ TÀI SẢN ✦ ĐỒNG HỒ LƯỚT CHÍNH HÃNG ✦ THỤY SĨ & NHẬT BẢN ✦ BẢO HÀNH DÀI HẠN ✦ THU CŨ ĐỔI MỚI GIÁ TỐT ✦ DỊCH VỤ SỬA CHỮA CHUYÊN NGHIỆP ✦ GIAO HÀNG TOÀN QUỐC ✦
+            ✦ UY TÍN LÀ TÀI SẢN ✦ ĐỒNG HỒ LƯỚT CHÍNH HÃNG ✦ THỤY SĨ & NHẬT BẢN ✦ BẢO HÀNH DÀI HẠN ✦ THU CŨ ĐỔI MỚI GIÁ TỐT ✦ DỊCH VỤ SỬA CHỮA CHUYÊN NGHIỆP ✦ GIAO HÀNG TOÀN QUỐC ✦
+        </div>
+    </div>
+
+    <section class="section-header">
+        <div class="badge" style="color:var(--neon-cyan); border-color: rgba(0, 242, 254, 0.5); box-shadow: 0 0 15px rgba(0,242,254,0.2)">✦ VÌ SAO CHỌN CHÚNG TÔI</div>
+        <h2>Đặc Quyền <span>Thượng Lưu</span></h2>
+    </section>
+
+    <section class="features">
+        <div class="feature-box">
+            <div class="feature-icon" style="color: var(--neon-cyan)">💎</div>
+            <h3>Đầu Tư Thông Minh</h3>
+            <p>Sở hữu siêu phẩm độ mới hoàn hảo với mức giá tiết kiệm hơn nhiều so với mua mới. Khẳng định đẳng cấp, tối ưu dòng tiền.</p>
+        </div>
+        <div class="feature-box">
+            <div class="feature-icon" style="color: var(--neon-pink)">🛡️</div>
+            <h3>Cam Kết Chính Hãng</h3>
+            <p>Kiểm định khắt khe trước khi lên kệ. Bồi thường 200% nếu phát hiện hàng giả. Uy tín là tài sản lớn nhất.</p>
+        </div>
+        <div class="feature-box">
+            <div class="feature-icon" style="color: var(--neon-purple)">👨‍🔧</div>
+            <h3>Hậu Mãi VIP</h3>
+            <p>Không "đem con bỏ chợ". Bảo hành dài hạn. Ưu đãi thu cũ đổi mới (trade-in) chiết khấu cực tốt cho khách quen.</p>
+        </div>
+        <div class="feature-box">
+            <div class="feature-icon" style="color: #fd1d1d">⚙️</div>
+            <h3>Sửa Chữa Chuyên Sâu</h3>
+            <p>Đội ngũ thợ tay nghề cao. Lau dầu, bảo dưỡng, phục hồi bằng linh kiện chính hãng tiêu chuẩn quốc tế.</p>
+        </div>
+    </section>
+
+    <section class="section-header" id="collection">
+        <div class="badge">✦ BỘ SƯU TẬP HOT NHẤT</div>
+        <h2>Chọn Chất Riêng <span>Của Bạn</span></h2>
+    </section>
+
+    <section class="products">
+        <!-- Product 1 -->
+        <div class="product-card card-1">
+            <div class="card-badge badge-hot">🔥 HOT</div>
+            <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=800&q=80" alt="Rolex Classic" class="product-img">
+            <h3 class="product-title">Crown Classic RLX</h3>
+            <p class="product-desc">Thép 904L • 40mm • Automatic</p>
+            <div class="product-footer">
+                <div>
+                    <div class="price-old">250.000.000đ</div>
+                    <div class="price-new">185.000.000đ</div>
+                </div>
+                <button class="add-btn"><i class="fas fa-plus"></i></button>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card card-2">
+            <div class="card-badge badge-new">✨ NEW</div>
+            <img src="https://images.unsplash.com/photo-1542496658-e326cc35ebda?auto=format&fit=crop&w=800&q=80" alt="Omega Master" class="product-img">
+            <h3 class="product-title">Seamaster Aqua</h3>
+            <p class="product-desc">Dây Kim Loại • 42mm • Co-Axial</p>
+            <div class="product-footer">
+                <div>
+                    <div class="price-old">150.000.000đ</div>
+                    <div class="price-new">98.500.000đ</div>
+                </div>
+                <button class="add-btn"><i class="fas fa-plus"></i></button>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card card-3">
+            <div class="card-badge badge-sale">🔥 -25%</div>
+            <img src="https://images.unsplash.com/photo-1548171915-e76a3e51f28b?auto=format&fit=crop&w=800&q=80" alt="Hublot Fusion" class="product-img">
+            <h3 class="product-title">Fusion Titanium</h3>
+            <p class="product-desc">Dây Cao Su • 42mm • Chronograph</p>
+            <div class="product-footer">
+                <div>
+                    <div class="price-old">180.000.000đ</div>
+                    <div class="price-new">135.000.000đ</div>
+                </div>
+                <button class="add-btn"><i class="fas fa-plus"></i></button>
+            </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card card-4">
+            <div class="card-badge badge-best">👑 BEST</div>
+            <img src="https://images.unsplash.com/photo-1587836374362-f073f15234de?auto=format&fit=crop&w=800&q=80" alt="Grand Seiko" class="product-img">
+            <h3 class="product-title">GS Snowflake</h3>
+            <p class="product-desc">Titanium • 41mm • Spring Drive</p>
+            <div class="product-footer">
+                <div>
+                    <div class="price-old">120.000.000đ</div>
+                    <div class="price-new">85.000.000đ</div>
+                </div>
+                <button class="add-btn"><i class="fas fa-plus"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 50px 20px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 50px;" id="contact">
+        <h2 style="font-family: var(--font-heading); margin-bottom: 20px;">Trải Nghiệm Thượng Lưu Tại Showroom</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 30px;">Địa chỉ: Quận 1, TP. Hồ Chí Minh <br> Hotline VIP: 0909.XXX.XXX</p>
+        <a href="#" class="btn-primary" style="font-size: 18px; padding: 15px 40px;">ĐẶT LỊCH HẸN NGAY</a>
+    </footer>
+</body>
+</html>
+
